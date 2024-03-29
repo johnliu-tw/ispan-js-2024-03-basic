@@ -1,3 +1,17 @@
+// Rest & Spread Operation
+function printNumbers(...numbers){
+  console.log(numbers);
+}
+printNumbers(1,2,3,4);
+
+function printNumbers2(number1, number2, number3){
+  console.log(number1);
+  console.log(number2);
+  console.log(number3);
+}
+printNumbers2(...[1,2,3]);
+
+
 // 小試身手2
 let products = [
     {name: '蘋果', price: 100},
