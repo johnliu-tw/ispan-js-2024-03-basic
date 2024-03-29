@@ -1,3 +1,30 @@
+// 小試身手3
+function findMax(...numbers){
+  let result = 0;
+  for(number of numbers){
+    // 第一輪, number => 1
+    // 第二輪, number => 2
+    // 第三輪, number => 5
+    // 第四輪, number => 7
+    // 第五輪, number => 3
+    if(number > result){
+       // 第一輪, result = 1
+       // 第二輪, result = 2
+       // 第三輪, result = 5
+       // 第四輪, result = 7
+       result = number;
+    }
+  }
+  
+  return result;
+}
+console.log(findMax(1,2,5,7,]));
+console.log(findMax(1,2,5));
+console.log(findMax(1,2,5,7,3,10));
+
+// 7
+
+
 // Rest & Spread Operation
 function printNumbers(...numbers){
   console.log(numbers);
