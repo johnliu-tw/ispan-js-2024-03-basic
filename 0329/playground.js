@@ -18,7 +18,7 @@ function findMax(...numbers){
   
   return result;
 }
-console.log(findMax(1,2,5,7,]));
+console.log(findMax(1,2,5,7,3));
 console.log(findMax(1,2,5));
 console.log(findMax(1,2,5,7,3,10));
 
