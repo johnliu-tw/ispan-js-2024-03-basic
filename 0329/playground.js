@@ -1,3 +1,9 @@
+// 小試身手1
+let product1 = '10';
+let product2 = '50';
+
+let sum = parseInt(product1) + parseInt(product2);
+console.log(`嗨, 您的價格${ sum >= 50 ? '' : '沒有' }超過限制`)
 
 
 // 0328 homework
