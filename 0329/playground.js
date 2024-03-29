@@ -1,3 +1,17 @@
+// 小試身手5
+let string = "Visit my blogs http://blog1.com and https://blog2.com for more info.";
+string = string.replaceAll('http://', '');
+string = string.replaceAll('https://', '');
+
+array = string.split(' ');
+
+for(item of array){
+  if(item.endsWith('.com')){
+    console.log(item.repeat(3));
+  }
+}
+
+
 // 小試身手4
 // 1. 標準方式
 // function getRealPrice(price, discount = 0.2){
