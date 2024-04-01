@@ -1,3 +1,53 @@
+// 小試身手3
+function getTaiwanDate(){
+  const dateObject = new Date();
+  const twYear = dateObject.getFullYear() - 1911;
+  let twMonth = dateObject.getMonth() + 1;
+  let twDate = dateObject.getDate();
+  twMonth = twMonth > 9 ? twMonth : '0' + twMonth;
+  twDate = twDate > 9 ? twDate : '0' + twDate;
+  
+  return `${twYear}-${twMonth}-${twDate}`
+}
+
+console.log(getTaiwanDate());
+
+function getTaiwanDate2(year = 0, month = 0, date = 0){
+  const dateObject = new Date();
+  if(year !== 0 && month !== 0 && date !== 0){
+    dateObject.setFullYear(year);
+    dateObject.setMonth(month - 1);
+    dateObject.setDate(date);
+  }
+  
+  const twYear = dateObject.getFullYear() - 1911;
+  let twMonth = dateObject.getMonth() + 1;
+  let twDate = dateObject.getDate();
+  twMonth = twMonth > 9 ? twMonth : '0' + twMonth;
+  twDate = twDate > 9 ? twDate : '0' + twDate;
+  
+  return `${twYear}-${twMonth}-${twDate}`
+}
+
+console.log(getTaiwanDate2(2020, 3, 20));
+
+
+function getLuckyNumber(){
+  return Math.floor(Math.random() * 26 + 20);
+}
+
+console.log(getLuckyNumber());
+
+function getLuckyNumber2(min = 20, max = 46){
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(getLuckyNumber2(1.44, 3.89));
+
+
 // 小試身手2
 let numbers = [-5, 2, -8, 12, 15];
 
