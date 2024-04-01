@@ -1,4 +1,16 @@
+// 小試身手1
+let inviteList = ['John', 'Dave', 'Macy'];
+let newInviteList = ['Judy', 'Tom'];
 
+console.log(inviteList.includes('Dave'));
+console.log(inviteList.indexOf('Dave'));
+
+inviteList = inviteList.concat(newInviteList);
+inviteList = inviteList.reverse();
+inviteList = inviteList.join(',');
+
+// inviteList = inviteList.reverse().join(',');
+console.log(inviteList);
 
 // Day2 回家作業
 let person = {
