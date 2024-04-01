@@ -1,3 +1,6 @@
+// Math random() 考考你
+console.log((Math.random() * 14) + 16 ); // 16 ~30
+
 // Math.max, min 呼叫方式
 console.log(Math.max(1, 2, 3));
 console.log(Math.max(...[1, 2, 3]));
