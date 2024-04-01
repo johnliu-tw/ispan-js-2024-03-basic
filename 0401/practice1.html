@@ -1,0 +1,14 @@
+<div>
+  <h1>測試標題</h1>
+</div>
+<script>
+  window.alert('歡迎訪問我們的網站！');
+  let answer = window.confirm('是否需要打開新頁面?');
+  if (answer) {
+    const tab = window.open('practice1-sample.html');
+    setTimeout(() => tab.close(), 1000);
+  }
+
+  setInterval(() => console.log(new Date()), 2000);
+  
+</script>
