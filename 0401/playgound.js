@@ -1,3 +1,11 @@
+// Math.max, min 呼叫方式
+console.log(Math.max(1, 2, 3));
+console.log(Math.max(...[1, 2, 3]));
+
+console.log(Math.min(1, 2, 3));
+console.log(Math.min(...[1, 2, 3]));
+
+
 // 小試身手1
 let inviteList = ['John', 'Dave', 'Macy'];
 let newInviteList = ['Judy', 'Tom'];
