@@ -1,3 +1,21 @@
+// 小試身手2
+let numbers = [-5, 2, -8, 12, 15];
+
+let max = Math.max(...numbers);
+let min = Math.min(...numbers);
+
+let absNumbers = [];
+for(let number of numbers){
+  absNumbers.push(Math.abs(number));
+}
+let maxAbs = Math.max(...absNumbers);
+let powerNumber = Math.sqrt(Math.pow(2, 6));
+let ceil = Math.ceil(-5.7);
+let floor = Math.floor(15.2);
+let round = Math.round(12.4)
+
+console.log(max + min + maxAbs + powerNumber + ceil + floor + round);
+
 // Math random() 考考你
 console.log((Math.random() * 14) + 16 ); // 16 ~30
 
