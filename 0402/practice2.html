@@ -1,0 +1,22 @@
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
+<button id="button">Create Paragraph</button>
+<div id="content"></div>
+
+<script>
+    let paragraph = '';
+    button.addEventListener('click', function(){
+        if(paragraph === ''){
+            let newElement = document.createElement('p');
+            newElement.innerText = '這是新的';
+            content.append(newElement);
+
+            paragraph = document.getElementsByTagName('p')[0];
+        } else {
+            paragraph.classList.toggle('hidden');
+        }
+    });
+</script>
