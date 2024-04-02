@@ -62,7 +62,7 @@
             result = firstNumber / secondNumber;
         }
 
-        display.value = result;
+        display.value = makeItBetter(result);
     });
 
     reset.addEventListener('click', function(){
@@ -71,5 +71,29 @@
         operator = '';
         display.value = '';
     });
+
+    function makeItBetter(result){
+        result = result.toString();
+        let array = result.split(''); //'2570' => [2,5,7,0]
+        array = array.reverse();
+
+        let newResult = [];
+        for(let index = 0; index < array.length; index++){
+            if(index > 0 && index % 3 === 0){
+                newResult.push(',');
+            }
+
+            newResult.push(array[index]);
+            // [0] -> index => 0
+            // [0,7] -> index => 1
+            // [0,7,5] -> index => 2
+            // [0,7,5,',']   -> index => 3
+            // [0,7,5,',',2] -> index => 3
+        }
+
+        newResult = newResult.reverse(); // [0,7,5,',',2] -> [2,',',5,7,0]
+        newResult = newResult.join(''); // [2,',',5,7,0] -> '2,570'
+        return newResult;
+    }
 
 </script>
