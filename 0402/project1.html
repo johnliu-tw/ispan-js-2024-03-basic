@@ -28,20 +28,22 @@
     const numberButtons = document.querySelectorAll('.number');
     for(let button of numberButtons){
         button.addEventListener('click', function(){
-
-            // 判斷使用者有沒有click operator
-            // 沒有的話, 設定 firstNumber
-            // 有的話, 設定 secondNumber
-            firstNumber = firstNumber + this.innerText
-            display.value = firstNumber;
+            if(operator === ''){
+                firstNumber = firstNumber + this.innerText
+                display.value = firstNumber;
+            } else {
+                secondNumber = secondNumber + this.innerText
+                display.value = secondNumber;
+            }
         });
     }
 
     const operatorButtons = document.querySelectorAll('.operator');
     for(let button of operatorButtons){
         button.addEventListener('click', function(){
-            // 如果使用者已經設定第一個數字
-            // 就設定 operator 這個變數
+            if(firstNumber !== '' && secondNumber === ''){
+                operator = this.innerText;
+            }
         });
     }
 
