@@ -4,12 +4,6 @@
       <button id="addTaskBtn">Add</button>
   </div>
   <ul id="taskList">
-    <li>
-      <input type="checkbox">
-      <span>task content</span>
-      <button>編輯</button>
-      <button>刪除</button>
-    </li>
   </ul>
   <div>
       <button id="allFilter">全部</button>
@@ -23,10 +17,20 @@
 <script>
   addTaskBtn.addEventListener('click', function(){
       const li = document.createElement('li');
-      li.innerText = newTaskInput.value;
 
-      const button = document.createElement('button');
-      li.append(button)
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      const span = document.createElement('span');
+      span.innerText = newTaskInput.value;
+      const editBtn = document.createElement('button');
+      editBtn.innerText = '編輯';
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerText = '刪除';
+
+      li.append(checkbox);
+      li.append(span);
+      li.append(editBtn);
+      li.append(deleteBtn);
 
       newTaskInput.value = '';
       taskList.append(li);
