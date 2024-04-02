@@ -7,12 +7,20 @@
 <input id="resultNum" disabled>
 <script>
 
-userName.innerText = '多拉Y夢';
-userText.className = 'big';
-sayButton.addEventListener('click', function() {
-    alert('你好');
-});
-originNum.addEventListener('input', function() {
-    resultNum.value = Math.pow(originNum.value, 2);
-});
+  userName.innerText = '多拉Y夢';
+  userText.className = 'big';
+  sayButton.addEventListener('click', function() {
+      alert('你好');
+  });
+  originNum.addEventListener('input', function() {
+      resultNum.value = Math.pow(originNum.value, 2);
+  });
+
+  // 綁定多個按鈕
+  const buttons = document.querySelectorAll('input');
+  for(let button of buttons){
+      button.addEventListener('click', function(){
+          window.alert('你點到我了');   // 記得取消 input 的 disabled 狀態
+      })
+  }
 </script>
