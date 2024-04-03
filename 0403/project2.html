@@ -1,0 +1,43 @@
+<body>
+  <div>
+      <input type="text" id="newTaskInput" placeholder="請輸入新的 task" />
+      <button id="addTaskBtn">Add</button>
+  </div>
+  <ul id="taskList">
+  </ul>
+  <div>
+      <button id="allFilter">全部</button>
+      <button id="activeFilter">未完成</button>
+      <button id="completedFilter">完成</button>
+  </div>
+  <br>
+  <div>剩餘任務: <span id="tasksLeftCounter">0</span></div>
+  <button id="clearAllBtn">清除全部</button>
+</body>
+<script>
+  addTaskBtn.addEventListener('click', function(){
+      const li = document.createElement('li');
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      const span = document.createElement('span');
+      span.innerText = newTaskInput.value;
+      const editBtn = document.createElement('button');
+      editBtn.innerText = '編輯';
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerText = '刪除';
+      deleteBtn.addEventListener('click', function(){
+        this.parentNode.remove();
+        //deleteBtn.parentNode.remove();
+        //li.remove();
+      });
+
+      li.append(checkbox);
+      li.append(span);
+      li.append(editBtn);
+      li.append(deleteBtn);
+
+      newTaskInput.value = '';
+      taskList.append(li);
+  });
+</script>
