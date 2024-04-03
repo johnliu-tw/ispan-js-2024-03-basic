@@ -1,0 +1,18 @@
+<textarea name="" id="jsonInput" cols="30" rows="10"></textarea>
+<button id="convertButton"></button>
+
+<script>
+    convertButton.addEventListener('click', function(){
+        if(jsonInput.value === ''){
+            window.alert('請輸入值');
+            return;
+        }
+
+        try {
+            const jsonObj = JSON.parse(jsonInput.value);
+            console.log(jsonObj);
+        } catch (error) {
+            window.alert('資料格式不對');
+        }
+    })
+</script>
