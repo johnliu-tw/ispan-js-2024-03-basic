@@ -1,0 +1,29 @@
+<form action="" id="jsForm">
+    <label for="">請輸入 ip 地址</label>
+    <input type="text" id="ipInput">
+    <button type="submit" id="validateButton">驗證 IP</button>
+    <p id="validationResult"></p>
+</form>
+<script>
+    jsForm.addEventListener('submit', function(){
+        event.preventDefault();
+        const parts = ipInput.value.split('.');
+        let isValid = true;
+
+        if(parts.length !== 4){
+            isValid = false;
+        } else {
+            for(let part of parts){
+                part = parseInt(part);
+                if( isNaN(part) || part < 0 || part > 255){
+                    isValid = false;
+                    break;
+                }
+            }
+        }
+
+        validationResult.innerText = isValid ? '有效的 ip 地址' : '無效的 ip 地址'
+    })
+
+    
+</script>
