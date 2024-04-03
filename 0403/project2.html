@@ -15,11 +15,39 @@
   <button id="clearAllBtn">清除全部</button>
 </body>
 <script>
+
+  clearAllBtn.addEventListener('click', function(){
+    taskList.innerHTML = '';
+    updateTaskLeft();
+  });
+
+  let stopAdded = false;
+  function updateAddButton(){
+    if(document.querySelectorAll('li').length >= 5){
+        addTaskBtn.innerText = '已超過最大限制';
+        stopAdded = true;
+    } else {
+        addTaskBtn.innerText = 'Add'
+        stopAdded = false;
+    }
+  }
+
+  function updateTaskLeft(){
+    tasksLeftCounter.innerText = document.querySelectorAll('li input:not(:checked)').length;
+  }
+  
+
   addTaskBtn.addEventListener('click', () => createTask());
   function createTask(){
+      if(stopAdded){
+        return;
+      }
+
       const li = document.createElement('li');
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
+      checkbox.addEventListener('change', () => updateTaskLeft());
+
       const span = document.createElement('span');
       span.innerText = newTaskInput.value;
       const editBtn = document.createElement('button');
@@ -37,6 +65,8 @@
         this.parentNode.remove();
         //deleteBtn.parentNode.remove();
         //li.remove();
+        updateAddButton();
+        updateTaskLeft();
       });
 
       li.append(checkbox);
@@ -46,6 +76,9 @@
 
       newTaskInput.value = '';
       taskList.append(li);
+
+      updateTaskLeft();
+      updateAddButton();
   }
   
   function applyFilter(filter){
