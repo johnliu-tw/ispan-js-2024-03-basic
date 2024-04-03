@@ -1,0 +1,53 @@
+<body>
+    <h2>Create a New Post</h2>
+    <form id="articleForm">
+    Title: <input type="text" name="title" id="title">
+    <p id="titleError" style="color: red"></p>
+    Content: <textarea type="text" name="content" id="content"></textarea>
+    <p id="contentError" style="color: red"></p> 
+    Author Email: <input type="text" name="email" id="email">
+    <p id="emailError" style="color: red"></p>
+    Creation Date: <input type="date" name="datetime" id="datetime">
+    <p id="datetimeError" style="color: red"></p>
+    
+    <button type="submit">Submit</button>
+    </form>
+</body>
+
+<script>
+    articleForm.addEventListener('submit', function(event){
+        event.preventDefault();
+        const formTitle = title.value;
+        const formContent = content.value;
+        const formEmail = email.value;
+        const formDate = new Date(datetime.value);
+
+        titleError.innerText = '';
+        contentError.innerText = '';
+        emailError.innerText = '';
+        datetimeError.innerText = '';
+
+        if(formTitle !== formTitle.toUpperCase()){
+            titleError.innerText = '請輸入全大寫'
+            return;
+        }
+
+        if(formContent.length > 50){
+            contentError.innerText = '請輸入小於 50 個字';
+            return;
+        }
+
+        let atPosition = formEmail.indexOf('@');
+        if(atPosition <= 0 || atPosition === formEmail.length -1){
+            emailError.innerText = '請輸入合法 email';
+            return;
+        }
+
+        if(formDate > new Date()){
+            datetimeError.innerText = '請輸入小於今天的日期';
+            return;
+        }
+
+        window.alert('表單送出');
+    })
+</script>
