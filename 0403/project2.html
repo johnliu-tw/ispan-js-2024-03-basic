@@ -15,9 +15,9 @@
   <button id="clearAllBtn">清除全部</button>
 </body>
 <script>
-  addTaskBtn.addEventListener('click', function(){
+  addTaskBtn.addEventListener('click', () => createTask());
+  function createTask(){
       const li = document.createElement('li');
-
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
       const span = document.createElement('span');
@@ -46,8 +46,8 @@
 
       newTaskInput.value = '';
       taskList.append(li);
-  });
-
+  }
+  
   function applyFilter(filter){
     const checkboxes = document.querySelectorAll('li input');
     for(let checkbox of checkboxes){
@@ -61,6 +61,14 @@
         }
     }
   }
+
+  newTaskInput.addEventListener('keydown', function(event){
+      if(event.key === 'Enter'){
+          createTask();
+      } else if(event.key === 'Escape'){
+          newTaskInput.value = '';
+      }
+  })
 
   allFilter.addEventListener('click', () => applyFilter('all'));
   activeFilter.addEventListener('click', () => applyFilter('active'));
