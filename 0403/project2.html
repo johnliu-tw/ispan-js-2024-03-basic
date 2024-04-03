@@ -44,6 +44,24 @@
       li.append(editBtn);
       li.append(deleteBtn);
 
+      function applyFilter(filter){
+        const checkboxes = document.querySelectorAll('li input');
+        for(let checkbox of checkboxes){
+            const isChecked = checkbox.checked;
+            if(filter === 'all'){
+                checkbox.parentNode.style.display = 'list-item';
+            } else if(filter === 'active'){
+                checkbox.parentNode.style.display = isChecked ? 'none' : 'list-item';
+            } else if(filter === 'completed'){
+                checkbox.parentNode.style.display = isChecked ? 'list-item' : 'none';
+            }
+        }
+      }
+
+      allFilter.addEventListener('click', () => applyFilter('all'));
+      activeFilter.addEventListener('click', () => applyFilter('active'));
+      completedFilter.addEventListener('click', () => applyFilter('completed'));
+
       newTaskInput.value = '';
       taskList.append(li);
   });
